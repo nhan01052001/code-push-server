@@ -1,144 +1,255 @@
-# CodePush Server
+# CodePush API Server
 
-The CodePush Server is a Node.js application that powers the CodePush Service. It allows users to deploy and manage over-the-air updates for their react-native applications in a self-hosted environment.
+Backend service chính của hệ thống Code Push Server, cung cấp REST API cho việc quản lý ứng dụng và phân phối cập nhật.
 
-Please refer to [react-native-code-push](https://github.com/microsoft/react-native-code-push) for instructions on how to onboard your application to CodePush.
+## 🚀 Công nghệ sử dụng
 
-## Deployment
+- **Node.js** (>= 16.x) với TypeScript
+- **Express.js** - Web framework
+- **Azure Storage** - Lưu trữ file bundles
+- **Redis** - Cache và session management
+- **Passport.js** - Authentication framework
+- **JWT** - Token-based authentication
+- **Multer** - File upload handling
 
-### Local
+## 🎯 Chức năng chính
 
-#### Prerequisites
+### 1. Quản lý ứng dụng (App Management)
+- Tạo, cập nhật, xóa ứng dụng
+- Quản lý collaborators
+- Transfer ownership
 
-The CodePush Server requires Azure Blob Storage to operate. For the local setup, there is an option to use emulated local storage with Azurite. 
-Please follow Azurite [official documentation](https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azurite) to [install](https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azurite?tabs=visual-studio#install-azurite) and [run](https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azurite?tabs=visual-studio#running-azurite-from-the-command-line) it locally.
-Additionally, you need to specify [EMULATED](ENVIRONMENT.md#emulated) flag equals true in the environmental variables.
+### 2. Deployment Management
+- Tạo và quản lý các deployment environments
+- Staging, Production environments
+- Deployment keys và metrics
 
-#### Steps
-To run the CodePush Server locally, follow these steps:
+### 3. Release Management
+- Upload và phân phối app bundles
+- Rollback releases
+- Phased rollout (từng phần)
+- Release promotion giữa các environments
 
-1. Clone the CodePush Service repository to your local machine.
+### 4. Authentication & Authorization
+- Local authentication
+- GitHub OAuth integration
+- Access token management
+- Role-based access control
 
-2. Copy the `.env.example` file to a new file named `.env` in the root directory:
-   ````bash
-   cp .env.example .env
-   ````
-   Fill in the values for each environment variable in the `.env` file according to your development or production setup.
-3. Install all necessary dependencies:
-   ````bash
-   npm install
-   ````
-4. Compile the server code:
-   ````bash
-   npm run build
-   ````
-5. Launch the server with the environment-specific start command:
-   ````bash
-   npm run start:env
-   ````
+### 5. Storage Integration
+- Azure Blob Storage support
+- Local file storage option
+- CDN integration ready
 
-By default, local CodePush server runs on HTTP. To run CodePush Server on HTTPS:
+## 📦 Cài đặt
 
-1. Create a `certs` directory and place `cert.key` (private key) and `cert.crt` (certificate) files there.
-2. Set environment variable [HTTPS](./ENVIRONMENT.md#https) to true.
- 
-> **Warning!** When hosting CodePush on Azure App Service HTTPS is enabled by default.
+### Yêu cầu
+- Node.js >= 16.x
+- Redis Server
+- Azure Storage Account (optional)
 
-For more detailed instructions and configuration options, please refer to the [ENVIRONMENT.md](./ENVIRONMENT.md) file.
-
-### Azure
-
-CodePush Server is designed to run as [Azure App Service](https://learn.microsoft.com/en-us/azure/app-service/overview).
-
-#### Prerequisites
-
-To deploy CodePush to Azure, an active Azure account and subscription are needed. 
-For more information, follow Azure's [official documentation](https://azure.microsoft.com/en-us/get-started/).
-During the deployment process, the included bicep script will create bare minimum Azure services needed to run CodePush Server including:
-1. Service plan
-2. App Service
-3. Storage account
-
-Additionally, for user authentication, a GitHub or Microsoft OAuth application is needed. 
-More detailed instructions on how to set up one can be found in the section [OAuth Apps](#oauth-apps).
-
-#### Steps
-
-**NOTE** Please be aware of [project-suffix naming limitations](#project-suffix) for resources in Azure .
-
-1. Login to your Azure account: `az login`
-2. Select subscription for deployment: `az account set --subscription <subscription-id>`
-3. Create resource group for CodePush resources: `az group create --name <resource-group-name> --location <az-location eg. eastus>`
-4. Deploy infrastructure with the next command: `az deployment group create --resource-group <resource-group-name> --template-file ./codepush-infrastructure.bicep --parameters project_suffix=<project-suffix> az_location=<az-location eg. eastus> github_client_id=<github-client-id> github_client_secret=<github-client-secret> microsoft_client_id=<microsoft-client-id> microsoft_client_secret=<microsoft-client-secret>`. OAuth parameters (both GitHub and Microsoft) are optional. It is possible to specify them after the deployment in environment settings of Azure WebApp.
-5. Deploy CodePush to the Azure WebApp created during infrastructure deployment. Follow the Azure WebApp [official documentation](https://learn.microsoft.com/en-us/azure/app-service/) "Deployment and configuration" section for detailed instructions.
-
-> **Warning!** The created Azure Blob Storage has default access settings. 
-> This means that all users within the subscription can access the storage account tables. 
-> Adjusting the storage account access settings to ensure proper security is the responsibility of the owner.
-
-## Configure react-native-code-push
-
-In order for [react-native-code-push](https://github.com/microsoft/react-native-code-push) to use your server, additional configuration value is needed.
-
-### Android
-
-in `strings.xml`, add following line, replacing `server-url` with your server.
-
-```
-<string moduleConfig="true" name="CodePushServerUrl">server-url</string>
+### Cài đặt dependencies
+```bash
+npm install
 ```
 
-### iOS
-
-in `Info.plist` file, add following lines, replacing `server-url` with your server.
-
-```
-<key>CodePushServerURL</key>
-<string>server-url</string>
+### Build TypeScript
+```bash
+npm run build
 ```
 
-## OAuth apps
+## 🔧 Cấu hình
 
-CodePush uses GitHub and Microsoft as identity providers, so for authentication purposes, you need to have an OAuth App registration for CodePush. 
-Client id and client secret created during registration should be provided to the CodePush server in environment variables. 
-Below are instructions on how to create OAuth App registrations.
+### Environment Variables
 
-### GitHub
+Tạo file `.env` trong thư mục `api`:
 
-1. Go to https://github.com/settings/developers
-1. Click on `New OAuth App`
-1. `Homepage URL` parameter will be the same as URL of your CodePush application on Azure - `https://codepush-<project-suffix>.azurewebsites.net` (for local development it will be either http://localhost:3000 or https://localhost:8443)
-1. `Authorization callback URL` will be `https://codepush-<project-suffix>.azurewebsites.net/auth/callback/github` (for local development it will be either http://localhost:3000/auth/callback/github or https://localhost:8443/auth/callback/github)
+```env
+# Server Configuration
+NODE_ENV=development
+PORT=3000
+SERVER_URL=http://localhost:3000
 
-### Microsoft
+# Redis Configuration
+REDIS_HOST=localhost
+REDIS_PORT=6379
+REDIS_PASSWORD=
 
-Both work and personal accounts use the same application for authentication. The only difference is property `Supported account types` that is set when creating the app.
+# Storage Configuration
+STORAGE_TYPE=local # hoặc 'azure'
+AZURE_STORAGE_CONNECTION_STRING=your-connection-string
+LOCAL_STORAGE_PATH=./storage
 
-1. Register an Azure Registered Application following [official guideline](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app#register-an-application)
-1. For option `Supported account types`:
-   1. If you want to support both Personal and Work accounts, select `Accounts in any organizational directory (Any Microsoft Entra ID tenant - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox)`
-   1. If you want to only support Work accounts, choose either `Accounts in this organizational directory only (<your directory> - Single tenant)` or `Accounts in any organizational directory (Any Microsoft Entra ID tenant - Multitenant)` depending if you want to support Single or Multitenant authorization. Make sure to set `MICROSOFT_TENANT_ID` envrionment variable in case of using single tenant application.
-   1. If you want to only support Personal accounts, select `Personal Microsoft accounts only`
-1. Set up Redirect URI(s) depending on the choice you made for `Supported account types`. If you choose both Personal and Work accounts, you need to add both redirect URIs, otherwise just one of the ones:
-   1. Personal account: `https://codepush-<project-suffix>.azurewebsites.net/auth/callback/microsoft` (for local development it will be either http://localhost:3000/auth/callback/microsoft or https://localhost:8443/auth/callback/microsoft)
-   1. Work account: `https://codepush-<project-suffix>.azurewebsites.net/auth/callback/azure-ad` (for local development it will be http://localhost:3000/auth/callback/azure-ad or https://localhost:8443/auth/callback/azure-ad)
-1. Generate secret following this [official guideline](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app#add-credentials)
+# Authentication
+JWT_SECRET=your-super-secret-key
+JWT_EXPIRES_IN=7d
+SESSION_SECRET=your-session-secret
 
-## Naming limitations
+# GitHub OAuth (optional)
+GITHUB_CLIENT_ID=your-github-client-id
+GITHUB_CLIENT_SECRET=your-github-client-secret
 
-### project-suffix
+# Email Configuration (optional)
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_USER=your-email@gmail.com
+SMTP_PASS=your-password
 
-1. Only letters are allowed.
-1. Maximum 15 characters.
+# Logging
+LOG_LEVEL=info
+LOG_FILE_PATH=./logs
+```
 
-## Metrics
+### Storage Configuration
 
-Installation metrics allow monitoring release activity via the CLI. For detailed usage instructions, please refer to the [CLI documentation](../cli/README.md#development-parameter).
+#### Local Storage
+```env
+STORAGE_TYPE=local
+LOCAL_STORAGE_PATH=./storage
+```
 
-Redis is required for Metrics to work.
+#### Azure Storage
+```env
+STORAGE_TYPE=azure
+AZURE_STORAGE_CONNECTION_STRING=DefaultEndpointsProtocol=https;AccountName=...
+AZURE_CONTAINER_NAME=codepush
+```
 
-### Steps
+## 🚀 Chạy ứng dụng
 
-1. Install Redis by following [official installation guide](https://redis.io/docs/latest/operate/oss_and_stack/install/install-redis/).
-1. TLS is required. Follow [official Redis TLS run guide](https://redis.io/docs/latest/operate/oss_and_stack/management/security/encryption/#running-manually).
-1. Set the necessary environment variables for [Redis](./ENVIRONMENT.md#redis).
+### Development Mode
+```bash
+npm run dev
+```
+
+### Production Mode
+```bash
+npm run build
+npm start
+```
+
+### Run Tests
+```bash
+npm test
+```
+
+## 📚 API Documentation
+
+### Base URL
+```
+http://localhost:3000
+```
+
+### Authentication
+Tất cả API endpoints (trừ authentication) yêu cầu Bearer token:
+```
+Authorization: Bearer <your-access-token>
+```
+
+### Main Endpoints
+
+#### Authentication
+- `POST /auth/register` - Đăng ký tài khoản mới
+- `POST /auth/login` - Đăng nhập
+- `GET /auth/github` - GitHub OAuth login
+- `POST /auth/logout` - Đăng xuất
+
+#### Apps
+- `GET /apps` - Lấy danh sách apps
+- `POST /apps` - Tạo app mới
+- `GET /apps/:appName` - Lấy thông tin app
+- `PATCH /apps/:appName` - Cập nhật app
+- `DELETE /apps/:appName` - Xóa app
+
+#### Deployments
+- `GET /apps/:appName/deployments` - Lấy danh sách deployments
+- `POST /apps/:appName/deployments` - Tạo deployment mới
+- `GET /apps/:appName/deployments/:deploymentName` - Lấy thông tin deployment
+- `PATCH /apps/:appName/deployments/:deploymentName` - Cập nhật deployment
+- `DELETE /apps/:appName/deployments/:deploymentName` - Xóa deployment
+
+#### Releases
+- `POST /apps/:appName/deployments/:deploymentName/release` - Upload release mới
+- `PATCH /apps/:appName/deployments/:deploymentName/release` - Cập nhật release
+- `POST /apps/:appName/deployments/:deploymentName/rollback` - Rollback release
+- `POST /apps/:appName/deployments/:deploymentName/promote` - Promote release
+
+#### Metrics
+- `GET /apps/:appName/deployments/:deploymentName/metrics` - Lấy metrics
+- `POST /apps/:appName/deployments/:deploymentName/metrics` - Report metrics
+
+### Example API Calls
+
+#### Tạo App mới
+```bash
+curl -X POST http://localhost:3000/apps \
+  -H "Authorization: Bearer YOUR_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "MyApp",
+    "os": "iOS",
+    "platform": "React-Native"
+  }'
+```
+
+#### Upload Release
+```bash
+curl -X POST http://localhost:3000/apps/MyApp/deployments/Staging/release \
+  -H "Authorization: Bearer YOUR_TOKEN" \
+  -F "package=@bundle.zip" \
+  -F "appVersion=1.0.0" \
+  -F "description=Bug fixes" \
+  -F "mandatory=false"
+```
+
+## 🏗️ Project Structure
+
+```
+api/
+├── script/
+│   ├── api.ts              # API route definitions
+│   ├── server.ts           # Express server setup
+│   ├── routes/             # Route handlers
+│   │   ├── acquisition.ts  # Client SDK endpoints
+│   │   ├── management.ts   # Management API
+│   │   └── auth.ts         # Authentication routes
+│   ├── storage/            # Storage implementations
+│   │   ├── azure-storage.ts
+│   │   └── local-storage.ts
+│   └── utils/              # Utility functions
+├── test/                   # Test files
+├── package.json
+└── tsconfig.json
+```
+
+## 🔒 Security Considerations
+
+1. **JWT Secret**: Sử dụng secret key mạnh và unique
+2. **HTTPS**: Luôn sử dụng HTTPS trong production
+3. **Rate Limiting**: Implement rate limiting cho API endpoints
+4. **Input Validation**: Validate tất cả user inputs
+5. **File Upload**: Giới hạn file size và types
+
+## 🐛 Troubleshooting
+
+### Redis Connection Error
+```bash
+Error: Redis connection to localhost:6379 failed
+```
+**Solution**: Đảm bảo Redis server đang chạy
+
+### Storage Permission Error
+```bash
+Error: EACCES: permission denied
+```
+**Solution**: Kiểm tra quyền write cho storage directory
+
+### Port Already in Use
+```bash
+Error: listen EADDRINUSE: address already in use :::3000
+```
+**Solution**: Thay đổi PORT trong .env hoặc kill process đang sử dụng port
+
+## 📄 License
+
+MIT License - xem [LICENSE.txt](../LICENSE.txt)

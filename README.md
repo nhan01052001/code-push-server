@@ -1,42 +1,183 @@
-# Visual Studio App Center CodePush Standalone Version
+# Code Push Server
 
-[CodePush](https://learn.microsoft.com/en-us/appcenter/distribution/codepush/) is an App Center feature that enables React Native developers to deploy mobile app updates directly to their users' devices. It consists of two parts: CodePush Server where developers can publish app updates to (e.g. JS, HTML, CSS or image changes), and [CodePush React Native Client SDK](https://github.com/Microsoft/react-native-code-push) that enables querying for updates from within an app.
+Hệ thống quản lý và phân phối cập nhật ứng dụng di động theo mô hình OTA (Over-The-Air) cho React Native và các framework khác.
 
-We announced that Visual Studio App Center will be retired on March 31, 2025. You can learn more about the support timeline and alternatives on https://aka.ms/appcenter/retire. In order to let developers keep using CodePush functionality after App Center is fully retired, we created a standalone version of CodePush Server that can be deployed and used independently from App Center itself. Code of this standalone version can be found in this repository. It is fully compatible with [CodePush React Native Client SDK](https://github.com/Microsoft/react-native-code-push).
+## 📋 Tổng quan
 
+Code Push Server là một giải pháp self-hosted thay thế cho Microsoft CodePush, cho phép các nhà phát triển triển khai cập nhật ứng dụng di động mà không cần phải qua App Store hoặc Google Play.
 
-## Getting Started
+## 🏗️ Kiến trúc hệ thống
 
-### CodePush Server
+```
+code-push-server/
+├── api/          # Backend API Server
+├── cli/          # Command Line Interface Tool
+├── dashboard/    # Web Dashboard & Desktop App
+└── QRCode/       # QR Code Management Service
+```
 
-The CodePush server, located in the `api` subdirectory, allows developers to build, deploy and manage CodePush updates themselves.
-For detailed information about the CodePush server, including installation instructions and usage details, please refer to the [CodePush Server README](./api/README.md).
+## 🚀 Công nghệ sử dụng
 
+### Backend (API)
+- **Node.js** với TypeScript
+- **Express.js** - Web framework
+- **Azure Storage** - Lưu trữ file
+- **Redis** - Cache và session management
+- **Passport.js** - Authentication
 
-### CodePush CLI
+### CLI Tool
+- **Node.js** với TypeScript
+- **Commander.js** - CLI framework
+- **React Native CLI** integration
 
-The CodePush CLI, located in `cli` subdirectory, is a command-line tool that allows developers to interact with the CodePush server. For detailed information about the CodePush CLI, including installation instructions and usage details, please refer to the [CodePush CLI README](./cli/README.md).
+### Dashboard
+- **React** với TypeScript
+- **Vite** - Build tool
+- **React Query** - Data fetching
+- **Tailwind CSS** - Styling
+- **Electron** - Desktop app
 
+### QRCode Service
+- **NestJS** - Node.js framework
+- **TypeORM** - Database ORM
+- **Canvas** - QR code generation
+- **JWT** - Authentication
 
-### CodePush Dashboard
+## 🎯 Tính năng chính
 
-The CodePush Dashboard, located in the `dashboard` subdirectory, is a web-based interface that provides a visual way to manage CodePush apps, deployments, and releases. It's an alternative to using the CLI for those who prefer a graphical interface. For detailed information about the CodePush Dashboard, including installation instructions and usage details, please refer to the [CodePush Dashboard README](./dashboard/README.md).
+1. **Quản lý ứng dụng**
+   - Tạo và quản lý nhiều ứng dụng
+   - Quản lý deployment environments (Production, Staging, Development)
+   - Access key management
 
+2. **Phân phối cập nhật**
+   - Upload và phân phối bundle updates
+   - Rollback functionality
+   - Phased rollout support
 
-## Contributing
+3. **QR Code Management**
+   - Tạo QR code cho quick deployment
+   - Tracking và analytics
+   - Custom branding
 
-While we cannot accept contributions or issues in this repository; however, as a permissively licensed open-source project, it is ready for community development and forks independently.
+4. **Dashboard**
+   - Web interface cho quản lý
+   - Desktop app với Electron
+   - Real-time statistics
 
+## 📦 Cài đặt và Chạy
 
-## Support
+### Yêu cầu hệ thống
+- Node.js >= 16.x
+- Redis Server
+- Azure Storage Account (hoặc local storage)
 
-This code is provided "as is", because of that Microsoft will not provide support services for it.
+### Cài đặt
 
+1. Clone repository:
+```bash
+git clone https://github.com/your-repo/code-push-server.git
+cd code-push-server
+```
 
-## Legal Notice
+2. Cài đặt dependencies cho từng service:
+```bash
+# API Server
+cd api && npm install
 
-Microsoft grants you access to the code in this repository under the MIT License, see the [LICENSE](./LICENSE) to learn more.
+# CLI Tool
+cd ../cli && npm install
 
-Microsoft, Windows, Microsoft Azure and/or other Microsoft products and services referenced in the documentation may be either trademarks or registered trademarks of Microsoft in the United States and/or other countries. The license for this code does not grant you rights to use any Microsoft names, logos, or trademarks. Go to [Microsoft Trademark and Brand Guidelines](http://go.microsoft.com/fwlink/?LinkID=254653) for more information.
+# Dashboard
+cd ../dashboard && npm install
 
-Privacy information can be found at https://privacy.microsoft.com/.
+# QRCode Service
+cd ../QRCode && npm install
+```
+
+### Chạy các service
+
+#### 1. API Server
+```bash
+cd api
+npm run start
+# Development mode
+npm run dev
+```
+
+#### 2. Dashboard
+```bash
+cd dashboard
+npm run dev
+# Build production
+npm run build
+```
+
+#### 3. QRCode Service
+```bash
+cd QRCode
+npm run start:dev
+# Production
+npm run start:prod
+```
+
+#### 4. CLI Tool
+```bash
+cd cli
+npm run build
+npm link
+# Sử dụng
+code-push --help
+```
+
+## 🔧 Cấu hình
+
+### Environment Variables
+
+Tạo file `.env` trong mỗi thư mục service:
+
+#### API Server (.env)
+```env
+NODE_ENV=development
+PORT=3000
+REDIS_URL=redis://localhost:6379
+AZURE_STORAGE_CONNECTION_STRING=your-connection-string
+JWT_SECRET=your-secret-key
+```
+
+#### Dashboard (.env)
+```env
+VITE_API_URL=http://localhost:3000
+VITE_QRCODE_API_URL=http://localhost:3001
+```
+
+#### QRCode Service (.env)
+```env
+PORT=3001
+DATABASE_URL=your-database-url
+JWT_SECRET=your-secret-key
+```
+
+## 📚 Documentation
+
+- [API Documentation](./api/README.md)
+- [CLI Documentation](./cli/README.md)
+- [Dashboard Documentation](./dashboard/README.md)
+- [QRCode Service Documentation](./QRCode/README.md)
+
+## 🤝 Contributing
+
+Xem [CONTRIBUTING.md](./CONTRIBUTING.md) để biết hướng dẫn đóng góp.
+
+## 📄 License
+
+Project này được phân phối dưới giấy phép [MIT License](./LICENSE.txt).
+
+## 🔒 Security
+
+Để báo cáo vấn đề bảo mật, vui lòng xem [SECURITY.md](./SECURITY.md).
+
+## 📞 Support
+
+- Issues: [GitHub Issues](https://github.com/your-repo/code-push-server/issues)
+- Email: support@example.com

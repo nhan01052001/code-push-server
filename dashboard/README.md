@@ -1,96 +1,282 @@
-# CodePush Web Dashboard
+# CodePush Dashboard
 
-Dashboard quản lý CodePush là một ứng dụng web giúp quản lý các bản cập nhật ứng dụng di động sử dụng CodePush Server. Ứng dụng cung cấp giao diện trực quan thay thế cho việc sử dụng CLI.
+Web interface và Desktop application cho việc quản lý CodePush apps, deployments và releases với giao diện trực quan.
 
-## Tính năng chính
+## 🚀 Công nghệ sử dụng
 
-- **Quản lý tài khoản**
-  - Xem thông tin tài khoản
-  - Quản lý Access Keys
+- **React** với TypeScript
+- **Vite** - Build tool nhanh
+- **React Query (TanStack Query)** - Data fetching và caching
+- **React Router** - Client-side routing
+- **Tailwind CSS** - Utility-first CSS framework
+- **Recharts** - Data visualization
+- **Electron** - Desktop application
+- **Firebase Hosting** - Web deployment
 
-- **Quản lý ứng dụng**
-  - Xem danh sách ứng dụng
-  - Tạo, chỉnh sửa và xóa ứng dụng
-  - Xem chi tiết ứng dụng (tên, hệ điều hành, platform)
+## 🎯 Tính năng chính
 
-- **Quản lý deployment**
-  - Tạo và quản lý các deployment (Production, Staging, Test...)
-  - Xem lịch sử các phiên bản
-  - Thực hiện rollback và promote giữa các deployment
+### 1. App Management
+- Xem danh sách tất cả apps
+- Tạo app mới với UI trực quan
+- Xem chi tiết app và deployments
+- Quản lý collaborators
 
-- **Quản lý cộng tác viên**
-  - Thêm và xóa cộng tác viên cho ứng dụng
+### 2. Deployment Management
+- Xem danh sách deployments với metrics
+- Tạo deployment mới
+- Xem deployment keys
+- Monitor deployment statistics
 
-## Cài đặt
+### 3. Release Management
+- Upload releases qua web interface
+- Xem release history
+- Rollback releases
+- Promote releases giữa environments
+- Bulk update descriptions
 
-### Yêu cầu
-- Node.js (phiên bản 18 trở lên)
-- npm (phiên bản 9 trở lên)
-- CodePush Server đang chạy (thư mục `/api`)
+### 4. QR Code Integration
+- Tạo QR codes cho quick deployment
+- Quản lý QR code campaigns
+- Track QR code usage
 
-### Các bước cài đặt
+### 5. Analytics & Metrics
+- Real-time deployment metrics
+- Installation statistics
+- Rollback monitoring
+- User adoption tracking
 
-1. **Cài đặt dependencies**
+### 6. Desktop App (Electron)
+- Native desktop experience
+- System tray integration
+- Auto-update support
+- Offline capability
 
+## 📦 Cài đặt
+
+### Prerequisites
+- Node.js >= 16.x
+- npm hoặc yarn
+- CodePush API Server đang chạy
+
+### Installation
 ```bash
+# Clone repository
+git clone <repository-url>
 cd dashboard
+
+# Install dependencies
 npm install
 ```
 
-2. **Cấu hình môi trường**
+## 🔧 Cấu hình
 
-Tạo file `.env` trong thư mục `dashboard` với nội dung sau:
+### Environment Variables
 
+Tạo file `.env.development` cho development:
+
+```env
+# API Configuration
+VITE_API_URL=http://localhost:3000
+VITE_QRCODE_API_URL=http://localhost:3001
+
+# App Configuration
+VITE_APP_NAME=CodePush Dashboard
+VITE_APP_VERSION=1.0.0
+
+# Feature Flags
+VITE_ENABLE_QRCODE=true
+VITE_ENABLE_ANALYTICS=true
+
+# Firebase (optional)
+VITE_FIREBASE_API_KEY=your-api-key
+VITE_FIREBASE_AUTH_DOMAIN=your-auth-domain
+VITE_FIREBASE_PROJECT_ID=your-project-id
 ```
-VITE_SERVER_URL=http://localhost:3000  # URL của CodePush Server
-VITE_API_PORT=3000                     # Port của CodePush Server
-VITE_GITHUB_CLIENT_ID=your_github_id   # GitHub OAuth Client ID
-VITE_SECONDARY_API_URL=http://localhost:3001  # URL của Secondary API (nếu có) => URL API của QRCode
-```
 
-3. **Khởi chạy ứng dụng trong môi trường phát triển**
+Tạo file `.env.production` cho production với các giá trị tương ứng.
 
+## 🚀 Chạy ứng dụng
+
+### Development Mode
 ```bash
+# Web development server
 npm run dev
+
+# Electron development
+npm run electron:dev
 ```
 
-4. **Xây dựng ứng dụng cho môi trường production**
+### Production Build
 
+#### Web Build
 ```bash
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+
+# Deploy to Firebase
+npm run deploy
+```
+
+#### Desktop Build
+```bash
+# Build Electron app for current platform
+npm run electron:build
+
+# Build for specific platforms
+npm run electron:build:mac
+npm run electron:build:win
+npm run electron:build:linux
+```
+
+## 📚 Sử dụng
+
+### 1. Đăng nhập
+- Truy cập dashboard tại `http://localhost:5173`
+- Đăng nhập với access token từ CLI hoặc GitHub/Microsoft OAuth
+
+### 2. Quản lý Apps
+- Click "Create App" để tạo app mới
+- Nhập tên app, chọn OS và platform
+- App sẽ được tạo với Staging và Production deployments
+
+### 3. Upload Release
+- Vào app details
+- Chọn deployment (Staging/Production)
+- Click "Create Release"
+- Upload bundle file hoặc drag & drop
+- Điền thông tin release và submit
+
+### 4. Monitor Deployments
+- Xem real-time metrics trên dashboard
+- Track active installs, pending updates
+- Monitor rollback statistics
+
+### 5. QR Code Management
+- Vào QR Code section
+- Tạo QR code cho specific deployment
+- Download hoặc share QR code
+- Track scans và installations
+
+## 🏗️ Project Structure
+
+```
+dashboard/
+├── src/
+│   ├── components/         # Reusable components
+│   │   ├── app/           # App-related components
+│   │   ├── deployment/    # Deployment components
+│   │   ├── layout/        # Layout components
+│   │   ├── qrcode/        # QR code components
+│   │   └── ui/            # UI components
+│   ├── pages/             # Page components
+│   ├── services/          # API services
+│   ├── hooks/             # Custom React hooks
+│   ├── context/           # React contexts
+│   ├── utils/             # Utility functions
+│   └── styles/            # Global styles
+├── electron/              # Electron main process
+├── public/                # Static assets
+├── build-resources/       # Electron build resources
+└── vite.config.ts         # Vite configuration
+```
+
+## 🎨 UI/UX Features
+
+### Responsive Design
+- Mobile-first approach
+- Adaptive layouts cho tất cả screen sizes
+- Touch-friendly interfaces
+
+### Dark Mode
+- Automatic theme detection
+- Manual theme toggle
+- Persistent theme preference
+
+### Performance Optimizations
+- Lazy loading components
+- Image optimization
+- Code splitting
+- Service worker caching
+
+### Accessibility
+- ARIA labels
+- Keyboard navigation
+- Screen reader support
+- High contrast mode
+
+## 🔒 Security
+
+1. **Authentication**: JWT-based với refresh tokens
+2. **Authorization**: Role-based access control
+3. **Data Encryption**: HTTPS everywhere
+4. **Input Validation**: Client và server-side validation
+5. **XSS Protection**: Content Security Policy
+
+## 🐛 Troubleshooting
+
+### Build Issues
+```bash
+# Clear cache và rebuild
+rm -rf node_modules dist
+npm install
 npm run build
 ```
 
-Sau khi build, các file tĩnh sẽ được tạo trong thư mục `dist` và có thể được triển khai trên bất kỳ web server nào.
+### API Connection Issues
+- Kiểm tra API server đang chạy
+- Verify VITE_API_URL trong .env
+- Check CORS configuration
 
-## Tích hợp với CodePush Server
+### Electron Issues
+```bash
+# Reset Electron cache
+npm run electron:clean
+npm run electron:rebuild
+```
 
-Dashboard kết nối với CodePush Server thông qua RESTful API. Đảm bảo CodePush Server đang chạy trước khi sử dụng dashboard.
+## 📱 Desktop App Features
 
-### Cấu hình xác thực
+### Auto-Update
+- Automatic update checks
+- Background downloads
+- User notifications
 
-1. **GitHub OAuth**
-   - Đảm bảo CodePush Server đã được cấu hình với GitHub OAuth
-   - Sử dụng cùng Client ID và Secret với CodePush Server
+### System Integration
+- System tray support
+- Native notifications
+- File drag & drop
+- Deep linking
 
-2. **Microsoft OAuth (nếu sử dụng)**
-   - Đảm bảo cấu hình đúng các tham số cho Microsoft OAuth trong CodePush Server
+### Offline Support
+- Cached data access
+- Queue offline actions
+- Sync when online
 
-## Cấu trúc mã nguồn
+## 🚢 Deployment
 
-- `/src/components`: Các component UI tái sử dụng
-- `/src/pages`: Các trang chính của ứng dụng
-- `/src/hooks`: Custom hooks
-- `/src/services`: Các service gọi API
-- `/src/context`: Context API cho quản lý state
-- `/src/utils`: Các tiện ích và helper functions
-- `/src/features`: Các tính năng của ứng dụng được phân chia theo module
-- `/src/layouts`: Các layout khác nhau của ứng dụng
-- `/src/config`: Các file cấu hình và hằng số
+### Web Deployment (Firebase)
+```bash
+# Install Firebase CLI
+npm install -g firebase-tools
 
-## Quy trình phát triển
+# Login to Firebase
+firebase login
 
-1. Fork dự án
-2. Tạo branch mới (`git checkout -b feature/amazing-feature`)
-3. Commit các thay đổi (`git commit -m 'Add some amazing feature'`)
-4. Push lên branch (`git push origin feature/amazing-feature`)
-5. Tạo Pull Request 
+# Initialize project
+firebase init
+
+# Deploy
+npm run deploy
+```
+
+### Desktop Distribution
+- **macOS**: DMG file với code signing
+- **Windows**: NSIS installer với auto-update
+- **Linux**: AppImage, deb, rpm packages
+
+## 📄 License
+
+MIT License - xem [LICENSE.txt](../LICENSE.txt) 
