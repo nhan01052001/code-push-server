@@ -1,0 +1,481 @@
+/* Layout CSS */
+
+:root {
+  --header-height: 64px;
+  --sidebar-width: 240px;
+  --color-surface: var(--gray-1);
+  --color-border: var(--gray-5);
+}
+
+/* Ngăn zoom và scroll ngang trên mobile */
+@media screen and (max-width: 768px) {
+  html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+}
+
+/* Fixed position header và sidebar */
+.header {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, border-color 0.3s ease !important;
+}
+
+/* Sidebar styling */
+.sidebar {
+  background-color: var(--color-surface) !important;
+  color: var(--color-text);
+  border-right: 1px solid var(--color-border) !important;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease !important;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Dark mode sidebar */
+.dark .sidebar {
+  background-color: #1e1e2d !important;
+  border-right: none !important;
+}
+
+.sidebar-header {
+  border-bottom: 1px solid var(--color-border);
+  backdrop-filter: blur(8px);
+  color: var(--color-text);
+}
+
+.dark .sidebar-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.sidebar-menu-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  border-radius: 6px;
+  color: var(--color-text);
+  font-weight: 500;
+  margin-bottom: 4px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.dark .sidebar-menu-item {
+  color: #a2a3b7;
+}
+
+.sidebar-menu-item:hover {
+  background-color: var(--color-highlight);
+  color: var(--color-highlight-text);
+}
+
+.dark .sidebar-menu-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.sidebar-menu-item.active {
+  background-color: var(--color-highlight);
+  color: var(--color-highlight-text);
+}
+
+.dark .sidebar-menu-item.active {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+}
+
+.sidebar-menu-item .icon {
+  margin-right: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+}
+
+/* Hiển thị desktop/mobile */
+.mobile-only {
+  display: none !important;
+}
+
+.desktop-only {
+  display: block;
+}
+
+/* Style cho footer sidebar trên mobile */
+.mobile-sidebar-footer {
+  margin-top: auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-top: 20px;
+  border-top: 1px solid var(--color-border);
+}
+
+.sidebar-logout-button {
+  width: 100%;
+  justify-content: flex-start;
+  gap: 12px;
+}
+
+/* Cài đặt grid cho các nút trên mobile */
+.mobile-action-buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+  margin-top: 16px;
+  margin-bottom: 20px;
+}
+
+.mobile-page-title {
+  margin-bottom: 16px;
+  text-align: center;
+  display: none;
+}
+
+.badge {
+  display: inline-block;
+  padding: 2px 6px;
+  font-size: 10px;
+  font-weight: 600;
+  border-radius: 4px;
+  text-transform: uppercase;
+  margin-left: 8px;
+}
+
+.badge-live {
+  background-color: #f5222d;
+  color: white;
+}
+
+/* Style cho input trong tab QR CODE */
+.qr-input {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  width: 100%;
+  font-size: 14px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.qr-input:focus {
+  outline: none;
+  border-color: var(--color-highlight-text);
+  box-shadow: 0 0 0 2px var(--color-highlight);
+}
+
+.qr-input::placeholder {
+  color: #888;
+}
+
+/* Dark mode styling cho input */
+.dark .qr-input {
+  background-color: #2d3748;
+  color: #e5e7eb;
+  border-color: #4a5568;
+}
+
+.dark .qr-input::placeholder {
+  color: #9ca3af;
+}
+
+/* Điều chỉnh main-content để có khoảng cách với header */
+.main-content {
+  margin-left: var(--sidebar-width);
+  min-height: calc(100vh - var(--header-height));
+  padding: 2rem;
+  transition: margin-left 0.3s ease, padding 0.3s ease, width 0.3s ease;
+  background-color: var(--color-background);
+  width: calc(100% - var(--sidebar-width));
+}
+
+/* Dark mode main-content */
+.dark .main-content {
+  background-color: #151521 !important;
+}
+
+/* Active tab styling - bỏ background-color */
+[data-state="active"] {
+  color: var(--color-highlight-text) !important;
+  font-weight: 500;
+  background-color: transparent !important;
+}
+
+/* Mobile menu toggle button */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--gray-11);
+  cursor: pointer;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+}
+
+/* Overlay for mobile sidebar */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  top: var(--header-height);
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 80;
+}
+
+/* Hide sidebar by default on mobile */
+.sidebar.mobile-hidden {
+  transform: translateX(-100%);
+}
+
+.sidebar.mobile-visible {
+  transform: translateX(0);
+}
+
+/* RESPONSIVE DESIGN */
+
+/* Laptop (1366px and below) */
+@media screen and (max-width: 1366px) {
+  .main-content {
+    padding: 1.75rem;
+  }
+}
+
+/* Small Laptop / Large Tablet (1024px and below) */
+@media screen and (max-width: 1024px) {
+  :root {
+    --sidebar-width: 200px;
+  }
+  
+  .main-content {
+    padding: 1.5rem;
+  }
+  
+  /* Make cards smaller */
+  .deployment-card-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)) !important;
+  }
+}
+
+/* Large Tablet (900px and below) */
+@media screen and (max-width: 900px) {
+  :root {
+    --sidebar-width: 70px;
+  }
+  
+  .sidebar-menu-item {
+    justify-content: center;
+    padding: 0.75rem;
+  }
+  
+  .sidebar-menu-item .icon {
+    margin-right: 0;
+    font-size: 1.25rem;
+  }
+  
+  .sidebar-menu-item span:not(.icon) {
+    display: none;
+  }
+  
+  /* Make deployment cards more compact */
+  .deployment-card-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)) !important;
+    gap: 12px !important;
+  }
+}
+
+/* Tablet (768px and below) */
+@media screen and (max-width: 768px) {
+  :root {
+    --header-height: 56px;
+  }
+  
+  /* Ngăn zoom trên mobile */
+  meta[name="viewport"] {
+    content: "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no";
+  }
+  
+  /* Switch desktop/mobile view */
+  .mobile-only {
+    display: block !important;
+  }
+  
+  .desktop-only {
+    display: none !important;
+  }
+  
+  /* Hiển thị tiêu đề trang trên mobile */
+  .mobile-page-title {
+    display: block;
+  }
+  
+  .header img {
+    height: 32px !important;
+  }
+  
+  /* Ẩn sidebar và tạo mobile menu */
+  .menu-toggle {
+    display: block;
+  }
+  
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: var(--header-height);
+    height: calc(100vh - var(--header-height));
+    width: 240px; /* Wider sidebar when shown on mobile */
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 100;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .sidebar > div {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .sidebar.open {
+    transform: translateX(0);
+  }
+  
+  .sidebar-overlay.visible {
+    display: block;
+  }
+  
+  .main-content {
+    margin-left: 0;
+    width: 100%;
+    padding: 1.25rem;
+  }
+  
+  .sidebar-menu-item {
+    justify-content: flex-start;
+    padding: 0.75rem 1rem;
+  }
+  
+  .sidebar-menu-item .icon {
+    margin-right: 0.75rem;
+  }
+  
+  .sidebar-menu-item span:not(.icon) {
+    display: inline;
+  }
+  
+  /* Chỉnh lại grid cho cards */
+  .deployment-card-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)) !important;
+    gap: 10px !important;
+  }
+  
+  /* Làm nhỏ heading và text */
+  h1, h2, h3, .rt-Heading {
+    font-size: 90% !important;
+  }
+  
+  /* Back to Top button position */
+  .back-to-top-button {
+    width: 40px !important;
+    height: 40px !important;
+    right: 20px !important;
+    bottom: 20px !important;
+  }
+}
+
+/* Mobile (576px and below) */
+@media screen and (max-width: 576px) {
+  .header {
+    padding: 0 1rem !important;
+  }
+  
+  /* Ẩn logo text trên header */
+  .header h1 {
+    font-size: 0.9rem !important;
+    max-width: 120px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .main-content {
+    padding: 1rem;
+  }
+  
+  /* Chỉnh lại grid cho deployment cards - 1 cột */
+  .deployment-card-grid {
+    grid-template-columns: 1fr !important;
+  }
+  
+  /* Điều chỉnh các tables */
+  table, .rt-Table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+  }
+  
+  /* Làm nhỏ các nút */
+  button, .rt-Button {
+    padding: 0 10px !important;
+    font-size: 0.9rem !important;
+  }
+  
+  /* Điều chỉnh dialog/modal */
+  .rt-DialogContent {
+    width: calc(100% - 32px) !important;
+    max-width: none !important;
+    padding: 16px !important;
+  }
+  
+  /* Ẩn user email trên header */
+  .user-email {
+    display: none !important;
+  }
+}
+
+/* Small Mobile (480px and below) */
+@media screen and (max-width: 480px) {
+  .header {
+    padding: 0 0.75rem !important;
+  }
+  
+  /* Ẩn app title trên điện thoại nhỏ */
+  .header h1 {
+    display: none !important;
+  }
+  
+  .main-content {
+    padding: 0.75rem;
+  }
+  
+  /* Làm nhỏ các form */
+  input, textarea, select, .rt-TextFieldInput {
+    font-size: 14px !important;
+  }
+  
+  /* Chỉnh lại heading trong các card */
+  .deployment-card h3, .app-card h3 {
+    font-size: 15px !important;
+  }
+  
+  /* Back to Top button position */
+  .back-to-top-button {
+    width: 36px !important;
+    height: 36px !important;
+    right: 16px !important;
+    bottom: 16px !important;
+  }
+}
+
+/* Thêm styling cho user email trong header */
+.user-email {
+  max-width: 180px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+} 

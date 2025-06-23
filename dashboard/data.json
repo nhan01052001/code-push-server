@@ -1,0 +1,933 @@
+[
+    {
+      "id": "EA5E3510-5416-463C-984A-00F10A6C5E40",
+      "sort": 1,
+      "type": "E_GROUP",
+      "title": "HRM_Portal_Button_Personalnfo",
+      "description": "HRM_Portal_Button_Personalnfo_Description",
+      "urlIcon": "/Apps/mobile/image/profile.png",
+      "listGroup": [
+        {
+          "id": "EA5E3510-5416-463C-984A-00F10A6CFGHJ",
+          "type": "E_SCREEN",
+          "title": "HRM_HR_Profile_WorkHistory",
+          "urlIcon": "/Content/images/icons/menu/quatrinhcongtac.png",
+          "screenName": "WorkHistory",
+          "resource": {
+            "name": "New_Personal_WorkHistory",
+            "rule": "View"
+          }
+        },
+        {
+          "id": "EA5E3510-5416-463C-984A-77H12A6C5E40",
+          "type": "E_SCREEN",
+          "title": "HRM_Payroll_Bonuses",
+          "urlIcon": "/Content/images/icons/menu/money.png",
+          "screenName": "Reward",
+          "resource": {
+            "name": "New_Reward_Portal",
+            "rule": "View"
+          }
+        },
+        {
+          "id": "EA5E3510-HH66-463C-984A-00F10A6C5E40",
+          "type": "E_SCREEN",
+          "title": "HR_Discipline",
+          "urlIcon": "/Content/images/icons/menu/stop.png",
+          "screenName": "Discipline",
+          "resource": {
+            "name": "New_WorkHistory_Discipline_Portal",
+            "rule": "View"
+          }
+        },
+        {
+          "id": "EA5E3510-5416-463C-676B-00F10A6C5E40",
+          "type": "E_SCREEN",
+          "title": "HRM_Evaluation_TraAndEva_List",
+          "urlIcon": "/Content/images/icons/menu/calendar-25.png",
+          "screenName": "Trainee",
+          "resource": {
+            "name": "New_Personal_Trainee",
+            "rule": "View"
+          }
+        },
+        {
+          "id": "EA5E7693-5416-463C-676B-00F10A6C5E40",
+          "type": "E_SCREEN",
+          "title": "HRM_Evaluation_TraAndEva_List",
+          "urlIcon": "/Content/images/icons/menu/calendar-25.png",
+          "screenName": "TopTabTraineeInfo",
+          "resource": {
+            "name": "New_Personal_TopTab_Trainee",
+            "rule": "View"
+          }
+        },
+        {
+          "id": "EA5E3510-5416-891A-676B-00F10A6C5E40",
+          "type": "E_SCREEN",
+          "title": "HRM_Evaluation_Result",
+          "urlIcon": "/Content/images/icons/menu/wait-evalution.png",
+          "screenName": "EvaPerformanceResult",
+          "resource": {
+            "name": "New_EvaPerformanceResult_New_Index",
+            "rule": "View"
+          }
+        },
+        {
+          "id": "EA5E3510-5416-463C-676B-00F10A6CASKP",
+          "type": "E_SCREEN",
+          "title": "HRM_HR_Qualification_QualificationName",
+          "urlIcon": "/Content/images/icons/menu/ds_chuyen_mon.png",
+          "screenName": "TopTabQualificationInfo",
+          "resource": {
+            "name": "New_QualificationInfo_New_Index",
+            "rule": "View"
+          }
+        },
+        {
+          "id": "EAHH7810-5416-463C-676B-00F10A6C5E40",
+          "type": "E_SCREEN",
+          "title": "HRM_Hre_ProfileLanguageLevel",
+          "urlIcon": "/Content/images/icons/menu/ds_ngoai_ngu.png",
+          "screenName": "HreLanguageLevel",
+          "resource": {
+            "name": "New_Hre_LanguageLevel_New_Index",
+            "rule": "View"
+          }
+        }
+      ]
+    },
+    {
+      "id": "A5A22921-27AF-497F-9C08-073A8228F5F5",
+      "sort": 2,
+      "type": "E_GROUP",
+      "title": "HRM_Portal_Button_PersonalSumbit",
+      "description": "HRM_Portal_Button_PersonalSumbit_Description",
+      "urlIcon": "/Apps/mobile/image/submit.png",
+      "listGroup": [
+        {
+          "id": "A5A22921-27AF-497F-HH09-073A8228F5F5",
+          "type": "E_SCREEN",
+          "title": "HRM_System_Resource_Att_TAMScan",
+          "urlIcon": "/Content/images/icons/menu/quet_the.png",
+          "screenName": "InOut",
+          "resource": {
+            "name": "Att_TAMScanDetail_Portal_Mobile",
+            "rule": "View"
+          }
+        },
+        {
+          "id": "A5A22921-27AF-497F-9C08-073A8228K4K4",
+          "type": "E_SCREEN",
+          "title": "HRM_Attendance_InOut_WorkDate",
+          "urlIcon": "/Content/images/icons/menu/thongtincong.png",
+          "screenName": "WorkDay",
+          "resource": {
+            "name": "Att_WorkDayDetail_Portal_Mobile",
+            "rule": "View"
+          }
+        },
+        {
+          "id": "A5A20964-27AF-497F-9C08-073A8228F5F5",
+          "type": "E_SCREEN",
+          "title": "HRM_Tab_Attendance_TableDetail",
+          "urlIcon": "/Content/images/icons/menu/notebook-8.png",
+          "screenName": "AttendanceDetail",
+          "resource": {
+            "name": "New_Attendance_AttendanceTableDetail_Portal",
+            "rule": "View"
+          }
+        },
+        {
+          "id": "B2B20964-27AF-497F-9C08-073A8228F5F5",
+          "type": "E_SCREEN",
+          "title": "HRM_Tab_Attendance_TableDetail",
+          "urlIcon": "/Content/images/icons/menu/notebook-8.png",
+          "screenName": "AttendanceCalendarDetail",
+          "resource": {
+            "name": "New_Attendance_AttendanceTableDetail_Calendar_Portal",
+            "rule": "View"
+          }
+        },
+        {
+          "id": "A5A22921-66FH-497F-9C08-073A8228F5F5",
+          "type": "E_SCREEN",
+          "title": "HRM_AttPaidLeave_List",
+          "urlIcon": "/Content/images/icons/menu/phep_nam.png",
+          "screenName": "AttPaidLeave",
+          "resource": {
+            "name": "New_Attendance_PaidLeave_Portal",
+            "rule": "View"
+          }
+        },
+        {
+          "id": "A5A22921-27AF-497F-420F-073A8228F5F5",
+          "type": "E_SCREEN",
+          "title": "HRM_Att_TamScanLogRegister_List",
+          "urlIcon": "/Content/images/icons/menu/price-tag.png",
+          "screenName": "AttSubmitTSLRegister",
+          "isTopNavigateDefault": true,
+          "resource": {
+            "name": "New_Att_TamScanLogRegister_New_Index_Portal",
+            "rule": "View"
+          }
+        },
+        {
+          "id": "H98H2921-27AF-497F-9C08-073A8228F5F5",
+          "type": "E_SCREEN",
+          "title": "HRM_Attendance_Roster",
+          "urlIcon": "/Content/images/icons/menu/calendar-20.png",
+          "screenName": "AttSubmitRoster",
+          "resource": {
+            "name": "New_Att_Roster_New_Index_Portal",
+            "rule": "View"
+          }
+        },
+        {
+          "id": "A5A22921-27AF-497F-9C08-073A8228992Q",
+          "type": "E_SCREEN",
+          "title": "HRM_ATT_Holiday_RegisterDayOff",
+          "urlIcon": "/Content/images/icons/menu/nghiphep.png",
+          "screenName": "AttSubmitLeaveDay",
+          "isTopNavigateDefault": true,
+          "resource": {
+            "name": "New_Att_Leaveday_New_Index_Portal",
+            "rule": "View"
+          }
+        },
+        {
+          "id": "BS522921-27AF-497F-9C08-073A8228F5F5",
+          "type": "E_SCREEN",
+          "title": "HRM_Att_Overtime_Config_RegisterOvertime",
+          "urlIcon": "/Content/images/icons/menu/stopwatch-20.png",
+          "screenName": "AttSubmitOvertime",
+          "isTopNavigateDefault": true,
+          "resource": {
+            "name": "New_Att_Overtime_New_Index_Portal",
+            "rule": "View"
+          }
+        },
+        {
+          "id": "A5F38121-27AF-497F-9C08-073A8228F5F5",
+          "type": "E_SCREEN",
+          "title": "HRM_Attendance_BussinessTravel",
+          "urlIcon": "/Content/images/icons/menu/BusinessTravel_Submit.png",
+          "screenName": "AttSubmitBusinessTravel",
+          "resource": {
+            "name": "New_Att_BussinessTravel_New_Index_Portal",
+            "rule": "View"
+          }
+        },
+        {
+          "id": "A5A22921-27AF-497F-9C08-073A8228KOPV",
+          "type": "E_SCREEN",
+          "title": "BusinessType__E_BUSINESSTRAVELTRANSFER",
+          "urlIcon": "/Content/images/icons/menu/businesstraveltransfer_submit.png",
+          "screenName": "AttSubmitBusinessTravelTransfer",
+          "isTopNavigateDefault": true,
+          "resource": {
+            "name": "New_Att_BusinessTravelTransfer_New_Index_Portal",
+            "rule": "View"
+          }
+        },
+         {
+            "id": "A5A22921-27AF-497F-H3K7-073A8228F5F5",
+            "type": "E_SCREEN",
+            "title": "HRM_Attendance_CheckIn_GPS",
+            "urlIcon": "/Content/images/icons/menu/checkin-gps.png",
+            "screenName": "GoogleMaps",
+            "isTopNavigateDefault": true,
+            "resource": {
+              "name": "New_Att_CheckInGPS_New_Index",
+              "rule": "View"
+            }
+          },
+          {
+            "id": "BKA22921-27AF-497F-H3K7-073A8228F5F5",
+            "type": "E_SCREEN",
+            "title": "HRM_Attendance_CheckIn_Wifi",
+            "urlIcon": "/Content/images/icons/menu/checkin-gps.png",
+            "screenName": "AttTSLCheckInOutWifi",
+            "isTopNavigateDefault": true,
+            "resource": {
+              "name": "New_Att_CheckInWifi_New_Index",
+              "rule": "View"
+            }
+          },
+          
+          {
+               "id": "A5A22921-168S-497F-9C11-073A8228F6H5",
+              "type": "E_SCREEN",
+              "title": "HRM_AppPortal_CheckNFC",
+              "urlIcon": "/Content/images/icons/menu/check-in-nfc.png",
+              "screenName": "AttTSLCheckInOutNFC",
+           "isTopNavigateDefault": true,
+            "resource": {
+              "name": "New_Att_CheckInWifi_New_Index",
+              "rule": "View"
+            }
+          },
+          
+        {
+          "id": "A5A22921-27AF-7W39-9C08-073A8228F5F5",
+          "type": "E_SCREEN",
+          "title": "HRM_Data_Requested",
+          "urlIcon": "/Content/images/icons/menu/waitingconfirm_computeworkdayadjust.png",
+          "screenName": "AttRequest",
+          "resource": {
+            "name": "New_Att_Requested_Data",
+            "rule": "View"
+          }
+        },
+        {
+          "id": "A5A22921-168S-497F-9C08-073A8228F5F5",
+          "type": "E_SCREEN",
+          "title": "HRM_Attendance_PregnancyRegister_AddNew",
+          "urlIcon": "/Content/images/icons/menu/PregnancyRegisterSubmit.png",
+          "screenName": "AttSubmitPregnancy",
+          "resource": {
+            "name": "New_Att_PregnancyRegister_New_Index_Portal",
+            "rule": "View"
+          }
+        },
+        {
+          "id": "A5A22921-27AF-497F-9C08-073A7745F5F5",
+          "type": "E_SCREEN",
+          "title": "HRM_Attendance_PlanOvertime",
+          "urlIcon": "/Content/images/icons/menu/overtime.png",
+          "screenName": "AttSubmitPlanOvertime",
+          "isTopNavigateDefault": true,
+          "resource": {
+            "name": "New_Att_PlanOvertime_New_Index",
+            "rule": "View"
+          }
+        },
+        {
+          "id": "A5F38121-27AF-AN7F-9C08-073A8228F5F5",
+          "type": "E_SCREEN",
+          "title": "HRM_Attendance_LeaveDayTrip",
+          "urlIcon": "/Content/images/icons/menu/placeholder.png",
+          "screenName": "AttSubmitBusinessTrip",
+          "resource": {
+            "name": "New_List_Travel_New_Index_Portal",
+            "rule": "View"
+          }
+        },
+        {
+          "id": "B2838121-27AF-AN7F-9C08-073A8228F5F5",
+          "type": "E_SCREEN",
+          "title": "HRM_New_Att_RequireCancel_New_Index",
+          "urlIcon": "/Content/images/icons/menu/box.png",
+          "screenName": "AttSubmitLeaveDayCancel",
+          "resource": {
+            "name": "New_Att_RequireCancel_New_Index",
+            "rule": "View"
+          }
+        },
+        {
+          "id": "B2838121-29A9-AN7F-9C08-073A8228F5F5",
+          "type": "E_SCREEN",
+          "title": "New_Att_RequestCancelationBusinessTravel_Title",
+          "urlIcon": "/Content/images/icons/menu/yc_huy_cong tac.png",
+          "screenName": "AttSubmitBusinessTravelCancel",
+          "resource": {
+            "name": "New_Att_RequestCancelationBusinessTravel_New_Index_Portal",
+            "rule": "View"
+          }
+        },
+        {
+          "id": "B2838121-29A9-AN7F-9C08-073A8228BB55",
+          "type": "E_SCREEN",
+          "title": "New_Att_RequestCancelationOvertimePlan_Title",
+          "urlIcon": "/Content/images/icons/menu/ds_yeu_cau_huy_Ke_hoach_tang_ca.png",
+          "screenName": "AttSubmitPlanOvertimeCancel",
+          "resource": {
+            "name": "New_Att_RequestCancelationOvertimePlan_New_Index",
+            "rule": "View"
+          }
+        },
+        {
+          "id": "C1438121-29A9-652P-9C08-073A8228BB55",
+          "type": "E_SCREEN",
+          "title": "HRM_Att_RosterGroupByEmp_Title",
+          "urlIcon": "/Content/images/icons/menu/rostergroup-emprequest.png",
+          "screenName": "AttSubmitRosterGroupByEmp",
+          "resource": {
+            "name": "New_Att_RosterGroupByEmp_New_Index",
+            "rule": "View"
+          }
+        },
+        {
+          "id": "B2838121-29A9-652P-9C08-073A8228BB55",
+          "type": "E_SCREEN",
+          "title": "HRM_Attendance_ShiftSubstitution",
+          "urlIcon": "/Content/images/icons/menu/DS_Doi_ca_lam_viec.png",
+          "screenName": "AttSubmitShiftSubstitution",
+          "resource": {
+            "name": "New_Att_ShiftSubstitution_New_Index_Portal_New",
+            "rule": "View"
+          }
+        },
+        {
+          "id": "EABB7810-5416-463C-676B-00F10A6C5E40",
+          "type": "E_SCREEN",
+          "title": "HRM_Insurance_ChangeInsInfoRegister_Title_List",
+          "urlIcon": "/Content/images/icons/menu/dk_chung_tu_bhxh.png",
+          "screenName": "InsSubmitChangeInsInfoRegister",
+          "resource": {
+            "name": "New_Ins_ChangeInsInfoRegister_Portal",
+            "rule": "View"
+          }
+        },
+        {
+          "id": "EAHH7810-5416-463C-676B-00F10A6B9E40",
+          "type": "E_SCREEN",
+          "title": "HRM_Insurance_InsuranceRecord",
+          "urlIcon": "/Content/images/icons/menu/chung_tu_bhxh.png",
+          "screenName": "TopTabInsInsuranceRecord",
+          "resource": {
+            "name": "New_Ins_InsuranceRecordWaiting_Portal",
+            "rule": "View"
+          }
+        },
+        {
+          "id": "EAHH7810-5416-463C-676B-00F90B6B9E40",
+          "type": "E_SCREEN",
+          "title": "HRM_Att_LateEarlyAllowed_Tittle",
+          "urlIcon": "/Content/images/icons/menu/dk_tre_som.png",
+          "screenName": "AttSubmitLateEarlyAllowed",
+          "resource": {
+            "name": "New_Att_LateEarlyAllowed_New_Index_Portal",
+            "rule": "View"
+          }
+        },
+        {
+          "id": "EAHH7810-5416-463C-676B-00F10AHD2E40",
+          "type": "E_SCREEN",
+          "title": "HRM_Tra_Class_Attendace_Title",
+          "urlIcon": "/Content/images/icons/menu/traAttendace.png",
+          "screenName": "TraAttendace",
+          "resource": {
+            "name": "New_Personal_Trainee_TraAttendace",
+            "rule": "View"
+          }
+        }
+      ]
+    },
+    {
+      "id": "A5A22921-27AF-497F-GHC08-073A8228F5F5",
+      "sort": 3,
+      "type": "E_GROUP",
+      "title": "HRM_Common_Approved",
+      "description": "HRM_Portal_Button_Approve_Description",
+      "urlIcon": "/Apps/mobile/image/submit.png",
+      "listGroup": [
+        {
+          "id": "A5A22921-69MA-497F-9C08-073A8228F5F5",
+          "type": "E_SCREEN",
+          "title": "HRM_Attendance_TAMScanLog_Waiting_Approve",
+          "urlIcon": "/Content/images/icons/menu/price-tag-3.png",
+          "screenName": "TopTabAttApproveTSLRegister",
+          "countWaitApprove": "total_tam_scan",
+          "resource": {
+            "name": "New_Att_TamScanLogRegister_Approve_New_Index_Portal",
+            "rule": "View"
+          }
+        },
+        {
+          "id": "A5A2NMAQ-27AF-497F-9C08-073A8228F5F5",
+          "type": "E_SCREEN",
+          "title": "HRM_Attendance_Roster_Waiting_Approve",
+          "urlIcon": "/Content/images/icons/menu/calendar-23.png",
+          "screenName": "TopTabAttApproveRoster",
+          "countWaitApprove": "total_roster",
+          "resource": {
+            "name": "New_Att_Roster_Approve_New_Index_Portal",
+            "rule": "View"
+          }
+        },
+        {
+          "id": "A5A22921-27AF-ASQ7-9C08-073A8228F5F5",
+          "type": "E_SCREEN",
+          "title": "HRM_Attendance_LeaveDay_Waiting_Approve",
+          "urlIcon": "/Content/images/icons/menu/duyetngaynghi.png",
+          "screenName": "TopTabAttApproveLeaveDay",
+          "countWaitApprove": "total_ld",
+          "resource": {
+            "name": "New_Att_Leaveday_Approve_New_Index_Portal",
+            "rule": "View"
+          }
+        },
+        {
+          "id": "A5A22921-27AF-497F-302Q-073A8228F5F5",
+          "type": "E_SCREEN",
+          "title": "HRM_Att_Overtime_Config_ApproveOvertime",
+          "urlIcon": "/Content/images/icons/menu/stopwatch-23.png",
+          "screenName": "TopTabAttApproveOvertime",
+          "countWaitApprove": "total_ot",
+          "resource": {
+            "name": "New_Att_Overtime_Approve_New_Index_Portal",
+            "rule": "View"
+          }
+        },
+        {
+          "id": "A5A22921-27AF-497F-9C08-9H7F8228F5F5",
+          "type": "E_SCREEN",
+          "title": "HRM_Attendance_BussinessTravel_Approve",
+          "urlIcon": "/Content/images/icons/menu/BusinessTravel_Approve.png",
+          "screenName": "TopTabAttApproveBusinessTravel",
+          "countWaitApprove": "total_businesstravel_approve",
+          "resource": {
+            "name": "New_Att_BussinessTravel_Approve_New_Index",
+            "rule": "View"
+          }
+        },
+        {
+          "id": "A5A22921-27AF-497F-9C08-073A822863F5",
+          "type": "E_SCREEN",
+          "title": "HRM_Attendance_BusinessTravelTransfer_Approve",
+          "urlIcon": "/Content/images/icons/menu/BusinessTravel_Approve.png",
+          "screenName": "TopTabAttApproveBusinessTravelTransfer",
+          "countWaitApprove": "total_businesstraveltransfer_approve",
+          "resource": {
+            "name": "New_Att_BusinessTravelTransfer_Approve_New_Index",
+            "rule": "View"
+          }
+        },
+        {
+          "id": "A5S9J521-27AF-497F-9C08-073A8228F5F5",
+          "type": "E_SCREEN",
+          "title": "ApproveType__E_PREGNANCYREGISTER",
+          "urlIcon": "/Content/images/icons/menu/PregnancyRegisterApproved.png",
+          "screenName": "TopTabAttApprovePregnancy",
+          "countWaitApprove": "total_pregnancyregister_approve",
+          "resource": {
+            "name": "New_Att_PregnancyRegister_Approve_New_Index",
+            "rule": "View"
+          }
+        },
+        {
+          "id": "A5A22921-27AF-497F-9C08-073A822F57K5",
+          "type": "E_SCREEN",
+          "title": "HRM_Attendance_PlanOvertimeApprove",
+          "urlIcon": "/Content/images/icons/menu/duyettangca.png",
+          "screenName": "TopTabAttApprovePlanOvertime",
+          "countWaitApprove": "total_ot_plan",
+          "resource": {
+            "name": "New_Att_PlanOvertime_Approve_New_Index",
+            "rule": "View"
+          }
+        },
+        {
+          "id": "A5A22921-27TT-497F-9C08-9H7F8228F5F5",
+          "type": "E_SCREEN",
+          "title": "List_Approved_Business_Travel",
+          "urlIcon": "/Content/images/icons/menu/placeholder-3.png",
+          "screenName": "TopTabAttApproveBusinessTrip",
+          "countWaitApprove": "total_business_travel",
+          "resource": {
+            "name": "New_List_ApprovedTravel_New_Index_Portal",
+            "rule": "View"
+          }
+        },
+        {
+          "id": "B5C22921-27TT-497F-9C08-9H7F8228F5F5",
+          "type": "E_SCREEN",
+          "title": "HRM_New_Att_RequireCancelApprove_New_Index",
+          "urlIcon": "/Content/images/icons/menu/box.png",
+          "screenName": "TopTabAttApproveLeaveDayCancel",
+          "countWaitApprove": "total_require_cancel_Leave",
+          "resource": {
+            "name": "New_Att_RequireCancelApprove_New_Index",
+            "rule": "View"
+          }
+        },
+        {
+          "id": "B5C22921-27TT-4999-9C08-9H7F8228F5F5",
+          "type": "E_SCREEN",
+          "title": "HRM_New_Att_RequestCancelationBusinessTravel_Approve_New_Index",
+          "urlIcon": "/Content/images/icons/menu/duuyet_yc_huy cong_tac.png",
+          "screenName": "TopTabAttApproveBusinessTravelCancel",
+          "countWaitApprove": "total_require_cancel_BusinessTravel",
+          "resource": {
+            "name": "New_Att_RequestCancelationBusinessTravel_Approve_New_Index",
+            "rule": "View"
+          }
+        },
+        {
+          "id": "B2838121-29A9-AN7F-9C08-073A9998F5F5",
+          "type": "E_SCREEN",
+          "title": "New_Att_RequestCancelationOvertimePlan_Approve_Title",
+          "urlIcon": "/Content/images/icons/menu/duyet_yeu_cau_huy_ke_hoach_tang_ca.png",
+          "screenName": "TopTabAttApprovePlanOvertimeCancel",
+          "countWaitApprove": "total_require_cancel_PlanOT",
+          "resource": {
+            "name": "New_Att_RequestCancelationOvertimePlan_Approve_New_Index",
+            "rule": "View"
+          }
+        },
+        {
+          "id": "B2838121-29A9-AN7F-9C08-073A6668F5F5",
+          "type": "E_SCREEN",
+          "title": "HRM_Att_ShiftSubstitution_Confirm",
+          "urlIcon": "/Content/images/icons/menu/duyet_doi_ca_thay_the.png",
+          "screenName": "AttWaitConfirmShiftSubstitution",
+          "countWaitApprove": "total_confirm_shiftSubstitution",
+          "resource": {
+            "name": "New_Att_ShiftSubstitution_Confirm_New_Index",
+            "rule": "View"
+          }
+        },
+        {
+          "id": "B2838121-29A9-AN7F-9C08-073A66C145B6",
+          "type": "E_SCREEN",
+          "title": "HRM_Attendance_RosterGroupByEmp_Approve",
+          "urlIcon": "/Content/images/icons/menu/rostergroup-empapprove.png",
+          "screenName": "TopTabAttApproveRosterGroupByEmp",
+          "countWaitApprove": "total_RosterGroupByEmp_Approve",
+          "resource": {
+            "name": "New_Att_RosterGroupByEmp_Approve_New_Index",
+            "rule": "View"
+          }
+        },
+        {
+          "id": "B2838121-29A9-AN7F-9C08-073A6668B5B6",
+          "type": "E_SCREEN",
+          "title": "HRM_Att_ShiftSubstitution_Approve",
+          "urlIcon": "/Content/images/icons/menu/duyet_doi_ca_thay_the.png",
+          "screenName": "TopTabAttApproveShiftSubstitution",
+          "countWaitApprove": "total_ShiftSubstitution_Approve",
+          "resource": {
+            "name": "New_Att_ShiftSubstitution_Approve_New_Index",
+            "rule": "View"
+          }
+        },
+        {
+          "id": "B2838121-29A9-AF5F-9C08-073A6668B5B6",
+          "type": "E_SCREEN",
+          "title": "HRM_Hre_EvaluationDoc",
+          "urlIcon": "/Content/images/icons/menu/duyet_danh_gia_ho_so.png",
+          "screenName": "TopTabHreApproveEvaluationDoc",
+          "countWaitApprove": "total_approve_evaluatedoc",
+          "resource": {
+            "name": "New_Hre_EvaluationDocument_Index",
+            "rule": "View"
+          }
+        },
+        {
+          "id": "B2838121-29A9-AF5F-9C08-073A2228B5B6",
+          "type": "E_SCREEN",
+          "title": "HRM_New_Hre_ViolationApprove",
+          "urlIcon": "/Content/images/icons/menu/duyet_danh_sach_vi_pham.png",
+          "screenName": "TopTabHreApproveViolation",
+          "countWaitApprove": "total_totalViolation",
+          "resource": {
+            "name": "New_Hre_Violation_Approve_New_Index",
+            "rule": "View"
+          }
+        },
+        {
+          "id": "C5FAB2EC-0F99-4124-AC67-01A9CA988KFD",
+          "type": "E_SCREEN",
+          "title": "HRM_Hr_StopWorkingWaiting",
+          "urlIcon": "/Content/images/icons/menu/duyet_nghi_viec.png",
+          "screenName": "TopTabHreSubmitStopWorking",
+          "resource": {
+            "name": "New_Hre_PersonalSubmitStopWorking_Approve_New_Index_Portal",
+            "rule": "View"
+          }
+        },
+        {
+          "id": "C5VGH2EC-0F99-4124-AC67-01A9CA988KFD",
+          "type": "E_SCREEN",
+          "title": "New_Att_LateEarlyAllowedApprove",
+          "urlIcon": "/Content/images/icons/menu/duyet_tre_som.png",
+          "screenName": "TopTabAttApproveLateEarlyAllowed",
+          "countWaitApprove": "total_totalLateEarlyAllowedApprove",
+          "resource": {
+            "name": "New_Att_LateEarlyAllowed_Approve_New_Index",
+            "rule": "View"
+          }
+        }
+      ]
+    },
+    {
+      "id": "959E8A48-C78A-4541-B6DA-06AFBEBB5233",
+      "sort": 4,
+      "type": "E_GROUP",
+      "title": "HRM_Payroll",
+      "urlIcon": "/Apps/mobile/image/salary-table.png",
+      "listGroup": [
+        {
+          "id": "959E8A48-C78A-4541-G7JH-06AFBEBB5233",
+          "type": "E_SCREEN",
+          "title": "HRM_Payroll_SalaryPayslips",
+          "urlIcon": "/Content/images/icons/menu/luong.png",
+          "screenName": "Salary",
+          "resource": {
+            "name": "New_Personal_New_SalaryInfo_Portal",
+            "rule": "View"
+          }
+        },
+        {
+          "id": "959E8A48-C78A-4541-G7JH-06AFBEBB5FG4",
+          "type": "E_SCREEN",
+          "title": "HRM_Payroll_UnusualAllowance_Title",
+          "urlIcon": "/Content/images/icons/menu/luong.png",
+          "screenName": "SalSubmitUnusualAllowance",
+          "resource": {
+            "name": "New_Personal_New_UnusualAllowance_Portal",
+            "rule": "View"
+          }
+        },
+        {
+          "id": "959E8A48-C78A-4541-2690-06AFBEBB5FG4",
+          "type": "E_SCREEN",
+          "title": "Sal_PITAmountTab",
+          "urlIcon": "/Content/images/icons/menu/du_lieu_thue.png",
+          "screenName": "SalSubmitPITAmount",
+          "resource": {
+            "name": "New_Personal_New_PITAmount_Portal",
+            "rule": "View"
+          }
+        },
+        {
+          "id": "959E8A48-C78A-4541-0209-06AFBEBB5FG4",
+          "type": "E_SCREEN",
+          "title": "BusinessType__E_SAL_PAYMENT_COST",
+          "urlIcon": "/Content/images/icons/menu/chi_tiet_phi.png",
+          "screenName": "SalSubmitPaymentCostRegister",
+          "resource": {
+            "name": "New_Sal_PaymentCostRegister_New_Index",
+            "rule": "View"
+          }
+        },
+        {
+          "id": "959E8A48-C78L-4541-0209-06AFBEBB5FG4",
+          "type": "E_SCREEN",
+          "title": "HRM_Sal_RewardPayslip_Title",
+          "urlIcon": "/Content/images/icons/menu/phieu_thuong.png",
+          "screenName": "SalRewardPayslip",
+          "resource": {
+            "name": "New_Personal_New_RewardPayslipInfo_Index_Portal",
+            "rule": "View"
+          }
+        }
+      ]
+    },
+    {
+      "id": "6569057E-EFD7-458F-94CF-05B892114AF9",
+      "sort": 5,
+      "type": "E_GROUP",
+      "title": "HRM_Tas_Task_Evaluation",
+      "urlIcon": "/Apps/mobile/image/thumbs-up.png",
+      "listGroup": [
+        {
+          "id": "6569057E-EFD7-458F-94CF-05B8921165GF",
+          "type": "E_SCREEN",
+          "title": "HRM_Evaluate_Flight",
+          "urlIcon": "/Content/images/icons/menu/danh_gia_nhanh.png",
+          "screenName": "EvaPerformanceQuickly",
+          "resource": {
+            "name": "New_PerformanceQuickly_New_Index",
+            "rule": "View"
+          }
+        },
+        {
+          "id": "6569072H-EFD7-458F-94CF-05B892114AF9",
+          "type": "E_SCREEN",
+          "title": "HRM_Evaluate_Flight_History",
+          "urlIcon": "/Content/images/icons/menu/lich_su_danh gia.png",
+          "screenName": "EvaPerformanceQuicklyHistory",
+          "resource": {
+            "name": "New_PerformanceQuicklyHistory_New_Index",
+            "rule": "View"
+          }
+        },
+        {
+          "id": "65690F46-EFD7-458F-94CF-05B892114AF9",
+          "type": "E_SCREEN",
+          "title": "HRM_Evaluation_PerformanceResultV3_Title",
+          "urlIcon": "/Content/images/icons/menu/danh_gia_v3.png",
+          "screenName": "EvaPerformanceEvaDataResultV3",
+          "resource": {
+            "name": "New_PerformanceEvaDataResultV3_New_Index",
+            "rule": "View"
+          }
+        },
+        {
+          "id": "6569057E-EFD7-458F-F054-05B892114AF9",
+          "type": "E_SCREEN",
+          "title": "HRM_Portal_Personal_WaitingEvaluation",
+          "urlIcon": "/Content/images/icons/menu/danh_gia_nhan_vien.png",
+          "screenName": "EvaPerformanceWait",
+          "countWaitApprove": "total_EvalutionWaiting",
+          "resource": {
+            "name": "New_EvaPerformanceWait_New_Index",
+            "rule": "View"
+          }
+        }
+      ]
+    },
+    {
+      "id": "5FB77DBC-9B0E-4425-B4DD-023ADF0FA363",
+      "sort": 6,
+      "type": "E_GROUP",
+      "title": "HRM_Hre_Tas_Task_Assignment",
+      "urlIcon": "/Apps/mobile/image/task-group.png",
+      "listGroup": [
+        {
+          "id": "5FB77DBC-9B0E-7789-B4DD-023ADF0FA363",
+          "type": "E_SCREEN",
+          "title": "HRM_Hre_Tas_Task",
+          "urlIcon": "/Content/images/icons/menu/quan_ly_cong_viec.png",
+          "screenName": "TopTabHreTaskManagerment",
+          "resource": {
+            "name": "Hre_Task_Managerment",
+            "rule": "View"
+          }
+        },
+        {
+          "id": "5FB77DBC-9B0E-4425-B4DD-023ADF0FF085",
+          "type": "E_SCREEN",
+          "title": "HRM_Hre_Task_Evaluation",
+          "urlIcon": "/Content/images/icons/menu/danh_gia_cong_viec.png",
+          "screenName": "HreTaskEvaluation",
+          "resource": {
+            "name": "Hre_Task_Evaluation",
+            "rule": "View"
+          }
+        }
+      ]
+    },
+    {
+      "id": "C5FAB2EC-0F99-4124-AC67-01A9CA21D01F",
+      "sort": 7,
+      "type": "E_GROUP",
+      "title": "HRM_Common_Other",
+      "urlIcon": "/Apps/mobile/image/orther.png",
+      "listGroup": [
+        {
+          "id": "B6FSB2EC-0F99-4124-AC67-01A9CA21D01F",
+          "type": "E_SCREEN",
+          "title": "CategoryType__E_EMPLOYEE",
+          "urlIcon": "/Content/images/icons/menu/khao_sat_nhan_vien.png",
+          "screenName": "HreSurveyEmployee",
+          "resource": {
+            "name": "New_Hre_Servey_Employee_New_Index",
+            "rule": "View"
+          }
+        },
+        {
+          "id": "B6FSB2EC-0F99-4124-AC67-01A91234D01F",
+          "type": "E_SCREEN",
+          "title": "HRM_Hre_SurveyQuiz",
+          "urlIcon": "/Content/images/icons/menu/quiz.png",
+          "screenName": "HreSurveyQuiz",
+          "resource": {
+            "name": "Survey_ListQuiz_Index_Portal",
+            "rule": "View"
+          }
+        },
+        {
+          "id": "C5FAB2EC-0F99-4124-BV78-01A9CA21D01F",
+          "type": "E_SCREEN",
+          "title": "HRM_LookupRoster",
+          "urlIcon": "/Content/images/icons/menu/tra_cuu_ca_lam_viec.png",
+          "screenName": "LookupRosterProfile",
+          "resource": {
+            "name": "New_ProfileRosterLookup",
+            "rule": "View"
+          }
+        },
+        {
+          "id": "C5FAB2EC-90H6-4124-AC67-01A9CA21D01F",
+          "type": "E_SCREEN",
+          "title": "HRM_Att_Workdays_Emps",
+          "urlIcon": "/Content/images/icons/menu/tong_hop_cong_nhan_vien.png",
+          "screenName": "AttDataWorkdaysEmps",
+          "resource": {
+            "name": "New_Search_Att_Workdays_Emps_New_Index",
+            "rule": "View"
+          }
+        },
+        {
+          "id": "C5FAB2EC-0F99-8732-AC67-01A9CA21D01F",
+          "type": "E_SCREEN",
+          "title": "HRM_ProfileInformationLookup",
+          "urlIcon": "/Content/images/icons/menu/tra_cuu_nhan_vien.png",
+          "screenName": "LookupProfile",
+          "resource": {
+            "name": "New_ProfileInformationLookup_New_Index_Portal",
+            "rule": "View"
+          }
+        },
+        {
+          "id": "C5FAB2EC-0F99-4124-AC67-07GSCA21D01F",
+          "type": "E_SCREEN",
+          "title": "HRM_Common_News",
+          "urlIcon": "/Content/images/icons/menu/tin_tuc.png",
+          "screenName": "News",
+          "resource": {
+            "name": "Other_News",
+            "rule": "View"
+          }
+        },
+        {
+          "id": "C5FAB2EC-00GF-4124-AC67-01A9CA21D01F",
+          "type": "E_SCREEN",
+          "title": "HRM_Common_News",
+          "urlIcon": "/Content/images/icons/menu/tin_tuc.png",
+          "screenName": "NewsSlider",
+          "resource": {
+            "name": "New_SysNewsSlider_New_Index_Portal",
+            "rule": "View"
+          }
+        },
+        {
+          "id": "C5FAB2EC-0F99-4124-AC67-01A9CA210KFD",
+          "type": "E_SCREEN",
+          "title": "HRM_Hre_PersonalSubmitStopWorking_List",
+          "urlIcon": "/Content/images/icons/menu/ds_nghi_viec.png",
+          "screenName": "HreSubmitStopWorking",
+          "resource": {
+            "name": "New_Hre_PersonalSubmitStopWorking_New_Index_Portal",
+            "rule": "View"
+          }
+        },
+        {
+          "id": "C5FAB2EC-0F99-906B-AC67-01A9CA21D01F",
+          "type": "E_SCREEN",
+          "title": "chart",
+          "urlIcon": "/Content/images/icons/menu/bieu_do.png",
+          "screenName": "GeneralChart",
+          "resource": {
+            "name": "New_General_Chart_New_Index",
+            "rule": "View"
+          }
+        },
+        {
+          "id": "C5FAB2EC-0F99-906B-AC67-01A9CAa71D01F",
+          "type": "E_SCREEN",
+          "title": "HRM_Hre_CheckInventory_Title",
+          "urlIcon": "/Content/images/icons/menu/kiem_tra_ton_Kho.png",
+          "screenName": "CheckInventory",
+          "resource": {
+            "name": "New_Hre_CheckInventory_New_Index",
+            "rule": "View"
+          }
+        },
+        {
+          "id": "C5FAB2EC-0F99-906B-AC67-01A9CVB71D01F",
+          "type": "E_SCREEN",
+          "title": "HRM_HR_Medical_Portal",
+          "urlIcon": "/Content/images/icons/menu/medicalhistory.png",
+          "screenName": "MedicalGeneral",
+          "resource": {
+            "name": "HR_Medical_Portal",
+            "rule": "View"
+          }
+        }
+      ]
+    }
+  ]

@@ -1,0 +1,299 @@
+.app-details-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.app-meta {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.deployment-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* Style cho highlighting giá trị */
+.highlighted-value {
+  font-weight: 600;
+  color: #0066CC;
+  padding: 1px 4px;
+  border-radius: 3px;
+  background-color: rgba(0, 102, 204, 0.08);
+}
+
+/* Style cho các nút hành động */
+.deployment-card button[data-color="blue"]:hover {
+  background-color: rgba(0, 112, 243, 0.15);
+}
+
+.deployment-card button[data-color="red"]:hover {
+  background-color: rgba(255, 53, 53, 0.15);
+}
+
+.deployment-card button svg {
+  margin-right: 5px;
+  width: 14px;
+  height: 14px;
+}
+
+/* Style cho thanh tìm kiếm */
+.rt-TabsContent {
+  padding-top: 16px;
+}
+
+.search-container {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+/* CSS cho grid deployment và card */
+.deployment-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+/* Hiệu ứng fade-in cho các deployment card */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card-container {
+  height: 100%;
+  display: flex;
+  min-height: 250px;
+  animation: fadeIn 0.3s ease-out forwards;
+  opacity: 0;
+}
+
+/* Delay cho từng card để tạo hiệu ứng tuần tự */
+.card-container:nth-child(1) { animation-delay: 0.05s; }
+.card-container:nth-child(2) { animation-delay: 0.1s; }
+.card-container:nth-child(3) { animation-delay: 0.15s; }
+.card-container:nth-child(4) { animation-delay: 0.2s; }
+.card-container:nth-child(5) { animation-delay: 0.25s; }
+.card-container:nth-child(6) { animation-delay: 0.3s; }
+.card-container:nth-child(7) { animation-delay: 0.35s; }
+.card-container:nth-child(8) { animation-delay: 0.4s; }
+.card-container:nth-child(9) { animation-delay: 0.45s; }
+.card-container:nth-child(n+10) { animation-delay: 0.5s; }
+
+/* Hiệu ứng mượt mà cho các phần tử trong card */
+.deployment-card * {
+  transition: all 0.2s ease-out;
+}
+
+/* CSS cho card deployment */
+.deployment-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 250px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hiệu ứng loading cho các tab content */
+.tab-content-loading {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.tab-content-loaded {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Hiệu ứng khi tab đang được load */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+/* Chỉnh sửa loading skeleton để sử dụng biến CSS từ chế độ sáng/tối */
+.loading-skeleton {
+  background: linear-gradient(to right, var(--color-skeleton-start) 8%, var(--color-skeleton-middle) 18%, var(--color-skeleton-end) 33%);
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite linear;
+  border-radius: 4px;
+  min-height: 20px;
+}
+
+@media (max-width: 768px) {
+  .deployment-card-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}
+
+/* Cải thiện animation khi đang hiển thị danh sách */
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+/* Hiệu ứng khi items được thêm vào hoặc xóa đi */
+.item-enter {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+.item-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.item-exit {
+  opacity: 1;
+}
+
+.item-exit-active {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Cải thiện chuyển đổi chế độ sáng/tối */
+body, 
+.rt-Card,
+.rt-TabsContent,
+.rt-TabsList,
+.rt-TabsTrigger,
+.deployment-card {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+/* Dark mode styling cho các panel */
+.dark [data-radix-tabs-content] {
+  background-color: #151521 !important;
+}
+
+.dark .rt-TabsList {
+  background-color: transparent !important;
+}
+
+.dark [data-orientation="horizontal"] {
+  background-color: transparent !important;
+}
+
+.dark .rt-TabsTrigger {
+  color: #a2a3b7;
+  background-color: transparent !important;
+}
+
+.dark .rt-TabsTrigger[data-state="active"] {
+  color: white;
+  background-color: transparent !important;
+}
+
+.dark .deployment-card {
+  background-color: #1e1e2d !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Animation cho nút Back to Top */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.back-to-top-button:hover {
+  transform: translateY(-5px);
+  background-color: var(--gray-8) !important;
+}
+
+.back-to-top-button:active {
+  transform: translateY(-2px);
+}
+
+/* Responsive styling cho app-details-header */
+@media screen and (max-width: 768px) {
+  .app-details-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .app-meta {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+/* Responsive styling cho danh sách deployment */
+@media screen and (max-width: 480px) {
+  .card-container {
+    min-height: 200px !important;
+  }
+  
+  .deployment-card {
+    min-height: 200px !important;
+  }
+}
+
+/* Style cho deployment card trên mobile */
+@media screen and (max-width: 768px) {
+  .deployment-card {
+    padding: 12px !important;
+  }
+  
+  .deployment-card .rt-Heading {
+    font-size: 16px !important;
+    margin-bottom: 4px;
+  }
+  
+  .card-container {
+    min-height: 180px !important;
+  }
+  
+  .highlighted-value {
+    font-weight: 500;
+    color: #0066CC;
+    padding: 0;
+    background-color: transparent;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .card-container {
+    min-height: 160px !important;
+  }
+  
+  .deployment-card {
+    min-height: 160px !important;
+  }
+  
+  /* Rút gọn nội dung trên deployment card */
+  .deployment-card * {
+    line-height: 1.4;
+  }
+} 

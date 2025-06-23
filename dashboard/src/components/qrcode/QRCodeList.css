@@ -1,0 +1,200 @@
+.resizable-header {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.header-content {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.resize-handle {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  cursor: col-resize;
+  background-color: transparent;
+  transition: background-color 0.2s;
+}
+
+.resize-handle:hover,
+.resize-handle:active {
+  background-color: var(--accent-8);
+}
+
+/* QR Code list table styles */
+.qrcode-row {
+  transition: background-color 0.2s;
+}
+
+.qrcode-row:hover {
+  background-color: var(--gray-3);
+}
+
+/* Style improvements for mobile view */
+@media (max-width: 640px) {
+  .qrcode-card {
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Cải thiện hiển thị version badge trên mobile */
+  .version-badge {
+    display: inline-flex;
+    align-self: flex-start;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+/* Tooltip for truncated text */
+[title] {
+  position: relative;
+  cursor: pointer;
+}
+
+/* Smooth transitions for interactive elements */
+button,
+a {
+  transition: transform 0.1s, opacity 0.1s;
+}
+
+button:active,
+a:active {
+  transform: scale(0.97);
+}
+
+/* Improved table cells */
+.compact-cell {
+  padding: 0 !important;
+  height: 80px !important; /* Chiều cao cố định cho cell */
+}
+
+/* Container để căn giữa nội dung trong cell */
+.cell-content {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 8px 10px;
+  width: 100%;
+}
+
+/* Đảm bảo text trong cell nằm chính giữa chiều dọc */
+.cell-content > * {
+  width: auto;
+}
+
+/* Style for URL display */
+.url-display {
+  font-family: monospace;
+  font-size: 12px;
+  background-color: var(--gray-3);
+  padding: 4px 8px;
+  border-radius: 4px;
+  display: inline-block;
+  max-width: fit-content !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: auto !important;
+}
+
+/* Badge style */
+.version-badge {
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 10px;
+  background-color: var(--green-3);
+  color: var(--green-11);
+  font-weight: 500;
+  display: inline-block;
+  text-align: center;
+  width: auto !important;
+  max-width: fit-content !important;
+}
+
+/* Action buttons style */
+.action-buttons {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.action-button {
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.action-button:hover {
+  background-color: var(--gray-4);
+}
+
+.action-button:active {
+  transform: scale(0.95);
+}
+
+/* Style cho QR Code Viewer */
+.qr-details-container {
+  width: 100%;
+}
+
+.qr-detail-row {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+/* Đảm bảo các label và giá trị thẳng hàng */
+@media (min-width: 641px) {
+  .qr-detail-row > div {
+    position: relative;
+  }
+
+  .qr-detail-row > div:last-child {
+    flex-basis: calc(100% - 160px); /* 150px cho label + 10px cho gap */
+  }
+}
+
+/* Animation for loading state */
+@keyframes pulse {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
+
+.pulse-animation {
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+/* QR Code specific styles */
+.qr-code-container {
+  border: 1px solid var(--gray-5);
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+}
+
+.qr-code-container img {
+  object-fit: contain;
+  max-width: 100%;
+  max-height: 100%;
+}

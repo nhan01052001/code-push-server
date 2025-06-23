@@ -1,0 +1,55 @@
+/* Performance Optimized CSS */
+
+/* Đặt content-visibility để tối ưu rendering */
+.content-defer {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 500px; /* Ước tính kích thước trước khi render */
+}
+
+/* Lazy image animations */
+.lazy-image {
+  transition: opacity 0.3s ease-in-out, filter 0.3s ease-in-out;
+}
+
+.lazy-image.loading {
+  opacity: 0.5;
+  filter: blur(5px);
+}
+
+.lazy-image.loaded {
+  opacity: 1;
+  filter: blur(0);
+}
+
+/* Tối ưu animations bằng transform thay vì properties khác */
+.optimized-animation {
+  transform: translateZ(0); /* Hardware acceleration */
+  will-change: transform, opacity; /* Báo trước cho browser sẽ thay đổi */
+}
+
+/* Tránh layout shifts đột ngột */
+img, video, iframe {
+  aspect-ratio: attr(width) / attr(height);
+}
+
+/* Tối ưu rendering cho danh sách lớn */
+.virtual-list-item {
+  contain: layout style paint;
+}
+
+/* Áp dụng "backface-visibility" để tối ưu những element không hiển thị */
+.optimized-hidden {
+  backface-visibility: hidden;
+}
+
+/* Thiết lập min-height cho những elements động để tránh layout shifts */
+.placeholder {
+  min-height: 100px;
+}
+
+/* Tối ưu font rendering */
+.text-optimized {
+  text-rendering: optimizeSpeed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+} 

@@ -1,0 +1,54 @@
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.app-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for tabs */
+.rt-TabsTrigger {
+  transition: color 0.3s ease !important;
+}
+
+/* Không dùng background-color cho tab trigger khi active */
+.rt-TabsTrigger[data-state="active"] {
+  color: var(--color-highlight-text) !important;
+  font-weight: 500;
+  background-color: transparent !important;
+}
+
+/* Cải thiện animation */
+.rt-TabsContent {
+  transition: background-color 0.3s ease, color 0.3s ease !important;
+}
+
+/* Dark mode fixes */
+.dark .app-card {
+  background-color: #1e1e2d !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.dark .app-card-content {
+  color: #e6e6e6;
+}
+
+.dark .app-card-title {
+  color: white;
+}
+
+.dark [data-radix-tabs-content] {
+  background-color: #151521 !important;
+}
+
+.dark .rt-TabsList {
+  background-color: transparent !important;
+}
+
+.dark [data-orientation="horizontal"] {
+  background-color: transparent !important;
+} 
